@@ -61,5 +61,8 @@
     <Compile Update="frmQR_Code.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="frmTrangChuGiaoVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

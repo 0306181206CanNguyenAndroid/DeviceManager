@@ -1,4 +1,4 @@
-﻿using BUS.BusinessObject;
+
 using DeviceManagerApp.BUS.BusinessObject;
 using DeviceManagerApp.DTO.Model;
 using DocumentFormat.OpenXml.Spreadsheet;
@@ -102,7 +102,7 @@ namespace DeviceManagerApp
 
                 CkbSua.Visible = true;
                 btnSuaTk.Enabled = true;
-                btnSuaTk.BackColor = System.Drawing.Color.Lime;
+                btnSuaTk.BackColor = System.Drawing.Color.Transparent;
 
             }
             catch
