@@ -1,5 +1,4 @@
-﻿using BUS.BusinessObjectBase;
-using DAO.DataLayer;
+﻿using DAO.DataLayer;
 using DeviceManagerApp.BUS.BusinessOjectBase;
 using DTO.Model;
 using System;

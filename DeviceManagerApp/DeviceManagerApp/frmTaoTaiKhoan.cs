@@ -1,4 +1,4 @@
-﻿using BUS.BusinessObject;
+﻿
 using DTO.Model;
 using System;
 using System.Collections.Generic;
@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Security.Cryptography;
+using DeviceManagerApp.BUS.BusinessObject;
 
 namespace DeviceManagerApp
 {
@@ -20,6 +21,16 @@ namespace DeviceManagerApp
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             this.WindowState = FormWindowState.Normal;
+            LoginInUser = user;
+        }
+        public frmTaoTaiKhoan()
+        {
+            InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.WindowState = FormWindowState.Normal;
+            UserModel user = new UserModel();
+            user.UserName = "Admin";
+            user.Status = 0;
             LoginInUser = user;
         }
 

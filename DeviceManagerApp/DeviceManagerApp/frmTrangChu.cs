@@ -15,6 +15,7 @@ namespace DeviceManagerApp
         public frmTrangChu(UserModel user)
         {
             InitializeComponent();
+            Setting();
             LoginInUser = user;
         }
 
@@ -41,11 +42,19 @@ namespace DeviceManagerApp
             lblNameUser.Text = LoginInUser.Name;
         }
 
+        public void Setting()
+        {
+            Rectangle r = new Rectangle(0, 0, userImage.Width, userImage.Height);
+            System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
+
+            gp.AddEllipse(0, 0, userImage.Width - 3, userImage.Height - 3);
+            Region rg = new Region(gp);
+            userImage.Region = rg;
+        }
 
 
 
-
-        private void pictureBox1_Logo_Click(object sender, EventArgs e)
+        private void pictureBox_Logo_Click(object sender, EventArgs e)
         {
             if (currentFormChild != null)
             {
