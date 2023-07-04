@@ -40,17 +40,17 @@
             this.btnQLTaiKhoan = new System.Windows.Forms.Button();
             this.pictureBox_Logo = new System.Windows.Forms.PictureBox();
             this.panel_Top = new System.Windows.Forms.Panel();
+            this.userImage = new System.Windows.Forms.PictureBox();
             this.lblNameUser = new System.Windows.Forms.Label();
             this.lbl_text = new System.Windows.Forms.Label();
             this.panel_Body = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.userImage = new System.Windows.Forms.PictureBox();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.panel_Left.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Logo)).BeginInit();
             this.panel_Top.SuspendLayout();
-            this.panel_Body.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userImage)).BeginInit();
+            this.panel_Body.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_Left
@@ -86,6 +86,7 @@
             this.btnQlLoaiThietBi.TabIndex = 9;
             this.btnQlLoaiThietBi.Text = "Quản Lý Loại Thiết Bị";
             this.btnQlLoaiThietBi.UseVisualStyleBackColor = false;
+            this.btnQlLoaiThietBi.Click += new System.EventHandler(this.btbQlLoaiThietBi_Click);
             // 
             // btnQlGiaoVien
             // 
@@ -99,6 +100,7 @@
             this.btnQlGiaoVien.TabIndex = 7;
             this.btnQlGiaoVien.Text = "Quản Lý Giáo Viên";
             this.btnQlGiaoVien.UseVisualStyleBackColor = false;
+            this.btnQlGiaoVien.Click += new System.EventHandler(this.btnQlGiaoVien_Click);
             // 
             // btnQlThanhLy
             // 
@@ -112,6 +114,7 @@
             this.btnQlThanhLy.TabIndex = 6;
             this.btnQlThanhLy.Text = "Quản Lý Thanh Lý";
             this.btnQlThanhLy.UseVisualStyleBackColor = false;
+            this.btnQlThanhLy.Click += new System.EventHandler(this.btnQlThanhLy_Click);
             // 
             // btnQlThuongHieu
             // 
@@ -125,6 +128,7 @@
             this.btnQlThuongHieu.TabIndex = 5;
             this.btnQlThuongHieu.Text = "Quản Lý Thương Hiệu";
             this.btnQlThuongHieu.UseVisualStyleBackColor = false;
+            this.btnQlThuongHieu.Click += new System.EventHandler(this.btnQlThuongHieu_Click);
             // 
             // btnQlKhoa
             // 
@@ -138,6 +142,7 @@
             this.btnQlKhoa.TabIndex = 4;
             this.btnQlKhoa.Text = "Quản Lý Khoa";
             this.btnQlKhoa.UseVisualStyleBackColor = false;
+            this.btnQlKhoa.Click += new System.EventHandler(this.btnQlKhoa_Click);
             // 
             // btnQlThietBi
             // 
@@ -151,6 +156,7 @@
             this.btnQlThietBi.TabIndex = 3;
             this.btnQlThietBi.Text = "Quản Lý Thiết Bị";
             this.btnQlThietBi.UseVisualStyleBackColor = false;
+            this.btnQlThietBi.Click += new System.EventHandler(this.btnQlThietBi_Click);
             // 
             // btnQLPhongMay
             // 
@@ -164,6 +170,7 @@
             this.btnQLPhongMay.TabIndex = 2;
             this.btnQLPhongMay.Text = "Quản lý Phòng Máy";
             this.btnQLPhongMay.UseVisualStyleBackColor = false;
+            this.btnQLPhongMay.Click += new System.EventHandler(this.btnQLPhongMay_Click);
             // 
             // btnQLTaiKhoan
             // 
@@ -179,6 +186,7 @@
             this.btnQLTaiKhoan.TabIndex = 1;
             this.btnQLTaiKhoan.Text = "Quản lý Tài Khoản";
             this.btnQLTaiKhoan.UseVisualStyleBackColor = false;
+            this.btnQLTaiKhoan.Click += new System.EventHandler(this.btnQLTaiKhoan_Click);
             // 
             // pictureBox_Logo
             // 
@@ -205,6 +213,16 @@
             this.panel_Top.Name = "panel_Top";
             this.panel_Top.Size = new System.Drawing.Size(1134, 62);
             this.panel_Top.TabIndex = 1;
+            // 
+            // userImage
+            // 
+            this.userImage.BackgroundImage = global::DeviceManagerApp.Properties.Resources.profile_3135715;
+            this.userImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.userImage.Location = new System.Drawing.Point(1068, 0);
+            this.userImage.Name = "userImage";
+            this.userImage.Size = new System.Drawing.Size(63, 59);
+            this.userImage.TabIndex = 2;
+            this.userImage.TabStop = false;
             // 
             // lblNameUser
             // 
@@ -233,7 +251,7 @@
             // 
             // panel_Body
             // 
-            this.panel_Body.Controls.Add(this.pictureBox1);
+            this.panel_Body.Controls.Add(this.pictureBox);
             this.panel_Body.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_Body.Location = new System.Drawing.Point(279, 62);
             this.panel_Body.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
@@ -241,28 +259,19 @@
             this.panel_Body.Size = new System.Drawing.Size(1134, 635);
             this.panel_Body.TabIndex = 2;
             // 
-            // pictureBox1
+            // pictureBox
             // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.ErrorImage = null;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1134, 635);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // userImage
-            // 
-            this.userImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.userImage.Location = new System.Drawing.Point(1068, 0);
-            this.userImage.Name = "userImage";
-            this.userImage.Size = new System.Drawing.Size(63, 59);
-            this.userImage.TabIndex = 2;
-            this.userImage.TabStop = false;
+            this.pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox.ErrorImage = null;
+            this.pictureBox.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox.Image")));
+            this.pictureBox.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(1134, 635);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox.TabIndex = 0;
+            this.pictureBox.TabStop = false;
             // 
             // frmTrangChu
             // 
@@ -276,13 +285,14 @@
             this.Name = "frmTrangChu";
             this.Text = "Trang Chủ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmTrangChu_FormClosing);
             this.panel_Left.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Logo)).EndInit();
             this.panel_Top.ResumeLayout(false);
             this.panel_Top.PerformLayout();
-            this.panel_Body.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userImage)).EndInit();
+            this.panel_Body.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -296,14 +306,13 @@
         private System.Windows.Forms.Label lbl_text;
         private System.Windows.Forms.Button btnQLTaiKhoan;
         private System.Windows.Forms.Button btnQLPhongMay;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Button btnQlThietBi;
         private System.Windows.Forms.Button btnQlKhoa;
         private System.Windows.Forms.Button btnQlThuongHieu;
         private System.Windows.Forms.Button btnQlThanhLy;
         private System.Windows.Forms.Button btnQlGiaoVien;
         private System.Windows.Forms.Button btnQlLoaiThietBi;
-        private System.Windows.Forms.Label lbltest;
         private System.Windows.Forms.Label lblNameUser;
         private System.Windows.Forms.PictureBox userImage;
     }

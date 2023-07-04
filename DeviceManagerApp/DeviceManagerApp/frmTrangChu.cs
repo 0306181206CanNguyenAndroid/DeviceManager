@@ -12,11 +12,13 @@ namespace DeviceManagerApp
     public partial class frmTrangChu : Form
     {
         public UserModel LoginInUser;
+        public event FireEventForAction_LogoutSuccess logout = null;
         public frmTrangChu(UserModel user)
         {
             InitializeComponent();
             Setting();
             LoginInUser = user;
+            lblNameUser.Text = LoginInUser.Name;
         }
 
         private Form currentFormChild;
@@ -39,7 +41,7 @@ namespace DeviceManagerApp
 
         private void TrangChu_Load(object sender, EventArgs e)
         {
-            lblNameUser.Text = LoginInUser.Name;
+            
         }
 
         public void Setting()
@@ -112,6 +114,21 @@ namespace DeviceManagerApp
             lbl_text.Text = btnQLTaiKhoan.Text;
         }
 
-
+        private void frmTrangChu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Bạn có thật sự muốn thoát chương trình?", "Thông Báo", MessageBoxButtons.OKCancel)
+                == System.Windows.Forms.DialogResult.OK)
+            {
+                if(logout!=null)
+                {
+                    logout(this, new Action_LogoutSuccessEventArgs { });
+                }
+                this.Dispose();
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }

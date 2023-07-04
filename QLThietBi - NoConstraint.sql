@@ -264,6 +264,88 @@ Create table D_DeviceError
 	--constraint fk_DeviceErr_User foreign key(CreatedUserId) references [System_User](Id),
 )
 
+--drop table [System_Borrow_Device_Letter]
+Create table [System_Borrow_Device_Letter]
+(
+	[Id] int not null IDENTITY(1,1),
+	[BorrowerId] int not null,
+	[Note] nvarchar(100) null,
+	[RoomId] int not null,
+	[ManagerDeviceId] int null,
+	[CreatedDate] DateTime null,
+	[DueDate] DateTime null,
+	[CreatedUserId] int null,
+	[IsDeleted] bit,
+	[Status] int null,
+	constraint pk_Borrow primary key(Id),
+	--constraint fk_Borrow_User foreign key(CreatedUserId) references [System_User](Id),
+	--constraint fk_BorrowDetail_Room foreign key(RoomId) references [D_Room](Id),
+	--constraint fk_BorrowDetail_Teacher foreign key(BorrowerId) references [S_Teacher](Id),
+	--constraint fk_BorrowDetail_Teacher foreign key(ManagerDeviceId) references [S_Teacher](Id),
+)
+
+Create table [System_Borrow_Device_Detail]
+(
+	[Id] int not null IDENTITY(1,1),
+	[BorrowLetterId] int null,
+	[DeviceId] int null,
+	[DeviceStatus] int null,
+	[CreatedDate] DateTime null,
+	[CreatedUserId] int null,
+	[IsDeleted] bit,
+	[Status] int null,
+	constraint pk_BorrowDetail primary key(Id),
+	--constraint fk_BorrowDetail_BorrowLetter foreign key(BorrowLetterId) references [System_Borrow_Device_Letter](Id),
+	--constraint fk_BorrowDetail_Device foreign key(DeviceId) references [D_Device](Id),
+	--constraint fk_BorrowDetail_User foreign key(CreatedUserId) references [System_User](Id),
+)
+Create table [D_Position]
+(
+	[Id] int not null IDENTITY(1,1),
+	[Name] nvarchar(50) null,
+	[CreatedDate] DateTime null,
+	[CreatedUserId] int null,
+	--[SalaryPerHour] decimal(18,0) null,
+	[IsDeleted] bit,
+	constraint pk_Position primary key(Id)
+)
+
+--alter table [dbo].[S_Teacher]
+--add [Gender] bit
+Create table [S_Teacher]
+(
+	[Id] int not null IDENTITY(1,1),
+	[FirstName] nvarchar(40) null,
+	[LastName] nvarchar(20) null,
+	[FullName] nvarchar(60) null,
+	[Birth] Datetime null,
+	[Gender] bit,
+	[Address] nvarchar(200) null,
+	[Image] nvarchar(200) null,
+	[Phone] varchar(20) null,
+	[Email] varchar(50) null,
+	[CreatedDate] DateTime null,
+	[CreatedUserId] int null,
+	[PositionId] int null,
+	[IsDeleted] bit null,
+	[Status] int null,
+	constraint pk_Staff primary key(Id),
+	--constraint fk_Staff_User foreign key(CreatedUserId) references [System_User](Id),
+)
+
+
+Create table [System_Decentralization]
+(
+	[Id] int not null IDENTITY(1,1),
+	[UserId] int null,
+	[TeacherId] int null, 
+	[CreatedDate] DateTime null,
+	[CreatedUserId] int null,
+	[IsDeleted] bit null,
+	--constraint pk_Decentralization primary key(Id),
+)
+/*
+
 Create table [D_Liquidation]
 (
 	[Id] int not null IDENTITY(1,1),
@@ -346,53 +428,7 @@ Create table [System_AccessRights]
 	--constraint fk_ _User foreign key(CreatedUserId) references [System_User](Id),
 )
 
---drop table [System_Borrow_Device_Letter]
-Create table [System_Borrow_Device_Letter]
-(
-	[Id] int not null IDENTITY(1,1),
-	[BorrowerId] int not null,
-	[Note] nvarchar(100) null,
-	[RoomId] int not null,
-	[ManagerDeviceId] int null,
-	[CreatedDate] DateTime null,
-	[DueDate] DateTime null,
-	[CreatedUserId] int null,
-	[IsDeleted] bit,
-	[Status] int null,
-	constraint pk_Borrow primary key(Id),
-	--constraint fk_Borrow_User foreign key(CreatedUserId) references [System_User](Id),
-	--constraint fk_BorrowDetail_Room foreign key(RoomId) references [D_Room](Id),
-	--constraint fk_BorrowDetail_Teacher foreign key(BorrowerId) references [S_Teacher](Id),
-	--constraint fk_BorrowDetail_Teacher foreign key(ManagerDeviceId) references [S_Teacher](Id),
-)
-
-Create table [System_Borrow_Device_Detail]
-(
-	[Id] int not null IDENTITY(1,1),
-	[BorrowLetterId] int null,
-	[DeviceId] int null,
-	[DeviceStatus] int null,
-	[CreatedDate] DateTime null,
-	[CreatedUserId] int null,
-	[IsDeleted] bit,
-	[Status] int null,
-	constraint pk_BorrowDetail primary key(Id),
-	--constraint fk_BorrowDetail_BorrowLetter foreign key(BorrowLetterId) references [System_Borrow_Device_Letter](Id),
-	--constraint fk_BorrowDetail_Device foreign key(DeviceId) references [D_Device](Id),
-	--constraint fk_BorrowDetail_User foreign key(CreatedUserId) references [System_User](Id),
-)
-Create table [D_Position]
-(
-	[Id] int not null IDENTITY(1,1),
-	[Name] nvarchar(50) null,
-	[CreatedDate] DateTime null,
-	[CreatedUserId] int null,
-	--[SalaryPerHour] decimal(18,0) null,
-	[IsDeleted] bit,
-	constraint pk_Position primary key(Id)
-)
-
-/*Create table [System_AccessRightsGroup]
+Create table [System_AccessRightsGroup]
 (
 	[Id] int not null IDENTITY(1,1),
 	[Name] nvarchar(100) null,
@@ -434,53 +470,17 @@ Create table [System_PositionLog]
 	--constraint pk_PositionLog primary key(Id),
 )
 */
-
---alter table [dbo].[S_Teacher]
---add [Gender] bit
-Create table [S_Teacher]
-(
-	[Id] int not null IDENTITY(1,1),
-	[FirstName] nvarchar(40) null,
-	[LastName] nvarchar(20) null,
-	[FullName] nvarchar(60) null,
-	[Birth] Datetime null,
-	[Gender] bit,
-	[Address] nvarchar(200) null,
-	[Image] nvarchar(200) null,
-	[Phone] varchar(20) null,
-	[Email] varchar(50) null,
-	[CreatedDate] DateTime null,
-	[CreatedUserId] int null,
-	[PositionId] int null,
-	[IsDeleted] bit null,
-	[Status] int null,
-	constraint pk_Staff primary key(Id),
-	--constraint fk_Staff_User foreign key(CreatedUserId) references [System_User](Id),
-)
-
-
-Create table [System_Decentralization]
-(
-	[Id] int not null IDENTITY(1,1),
-	[UserId] int null,
-	[TeacherId] int null, 
-	[CreatedDate] DateTime null,
-	[CreatedUserId] int null,
-	[IsDeleted] bit null,
-	--constraint pk_Decentralization primary key(Id),
-)
-
-Create table [S_StaffLog]
-(
-	[Id] int not null IDENTITY(1,1),
-	[StaffId] int null,
-	[Action] int null,
-	[ModifiedDate] DateTime null,
-	[ModifiedUserId] int null,
-	[IsDeleted] bit null,
-	constraint pk_StaffLog primary key(Id),
-	--constraint fk_StaffLog_Staff foreign key(StaffId) references [S_Staff](Id),
-)
+--Create table [S_StaffLog]
+--(
+--	[Id] int not null IDENTITY(1,1),
+--	[StaffId] int null,
+--	[Action] int null,
+--	[ModifiedDate] DateTime null,
+--	[ModifiedUserId] int null,
+--	[IsDeleted] bit null,
+--	constraint pk_StaffLog primary key(Id),
+--	--constraint fk_StaffLog_Staff foreign key(StaffId) references [S_Staff](Id),
+--)
 
 --drop table [D_Device]
 --drop table [D_Device_Specs]

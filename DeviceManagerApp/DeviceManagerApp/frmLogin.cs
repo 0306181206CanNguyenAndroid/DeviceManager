@@ -16,6 +16,11 @@ namespace DeviceManagerApp
         {
             InitializeComponent();
         }
+        private void T_logout(object sender, Action_LogoutSuccessEventArgs e)
+        {
+            //throw new NotImplementedException();
+            this.Show();
+        }
 
         private void btbDangNhap_Click(object sender, EventArgs e)
         {
@@ -34,20 +39,22 @@ namespace DeviceManagerApp
                     if(DecentralizationBus.CheckUserId(UserId))
                     {
                         int Status = DecentralizationBus.GetStatusByUserId(UserId);
+                        this.Hide();
                         if (Status == 1) {
                             //là admin
-                            MessageBox.Show("Đăng Nhập Thành Công");
                             UserModel userModel=DecentralizationBus.GetInfoById(UserId);
-                            frmTrangChu frmTrangChu = new frmTrangChu(user);
+                            frmTrangChu frmTrangChu = new frmTrangChu(userModel);
+                            frmTrangChu.logout += T_logout;
                             frmTrangChu.ShowDialog();
-                            this.Close();
+                            
                         }else if(Status==0) 
                         {
-                            MessageBox.Show("Đăng Nhập Thành Công");
                             //giáo viên
-                            frmTrangChuGiaoVien frmTrangChuGiaoVien=new frmTrangChuGiaoVien();
+                            UserModel userModel = DecentralizationBus.GetInfoById(UserId);
+                            frmTrangChuGiaoVien frmTrangChuGiaoVien=new frmTrangChuGiaoVien(userModel);
+                            frmTrangChuGiaoVien.logout += T_logout;
                             frmTrangChuGiaoVien.ShowDialog();
-                            this.Close();
+                            
                         }
                     }
                     else
@@ -60,6 +67,11 @@ namespace DeviceManagerApp
                     MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng");
                 }
             }
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

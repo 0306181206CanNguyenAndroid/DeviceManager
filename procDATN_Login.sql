@@ -24,7 +24,7 @@ create proc [dbo].[GetInfoByUserId](
 )
 as
 begin
-	select * from [System_User]
+	select Id,[UserName], [Name] from [System_User]
 	where Id=@UserId and ISNULL(IsDeleted,0)=0
 end
 go

@@ -43,6 +43,8 @@
   <ItemGroup>
     <PackageReference Include="DocumentFormat.OpenXml" Version="2.20.0" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
+    <PackageReference Include="Microsoft.ReportViewer.2015.Runtime" Version="12.0.2.2402" />
+    <PackageReference Include="Microsoft.ReportViewer.VS2015.WinForms" Version="12.0.2.2402" />
     <PackageReference Include="QRCoder" Version="1.4.3" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
     <PackageReference Include="ZXing.Net" Version="0.16.9" />
