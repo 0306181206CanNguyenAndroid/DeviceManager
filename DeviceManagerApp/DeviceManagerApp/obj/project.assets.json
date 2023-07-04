@@ -246,6 +246,28 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+      "Microsoft.ReportViewer.2015.Runtime/12.0.2.2402": {
+        "type": "package",
+        "compile": {
+          "lib/Microsoft.ReportViewer.Common.dll": {},
+          "lib/Microsoft.ReportViewer.ProcessingObjectModel.DLL": {},
+          "lib/Microsoft.ReportViewer.WebForms.DLL": {}
+        },
+        "runtime": {
+          "lib/Microsoft.ReportViewer.Common.dll": {},
+          "lib/Microsoft.ReportViewer.ProcessingObjectModel.DLL": {},
+          "lib/Microsoft.ReportViewer.WebForms.DLL": {}
+        }
+      },
+      "Microsoft.ReportViewer.VS2015.WinForms/12.0.2.2402": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Microsoft.ReportViewer.WinForms.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Microsoft.ReportViewer.WinForms.dll": {}
+        }
+      },
       "Microsoft.SqlServer.Server/1.0.0": {
         "type": "package",
         "compile": {
@@ -1210,6 +1232,33 @@
         "microsoft.netcore.targets.1.1.0.nupkg.sha512",
         "microsoft.netcore.targets.nuspec",
         "runtime.json"
+      ]
+    },
+    "Microsoft.ReportViewer.2015.Runtime/12.0.2.2402": {
+      "sha512": "Q+tDpRlGeisqTG6Im/WpZJTSAQ9RpjUmZapGYkgL7ZbRO4d8hFZqBxIgmdXZN91B5wLSo2hE3EotEmQ82x3uTQ==",
+      "type": "package",
+      "path": "microsoft.reportviewer.2015.runtime/12.0.2.2402",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/Microsoft.ReportViewer.Common.dll",
+        "lib/Microsoft.ReportViewer.ProcessingObjectModel.DLL",
+        "lib/Microsoft.ReportViewer.WebForms.DLL",
+        "microsoft.reportviewer.2015.runtime.12.0.2.2402.nupkg.sha512",
+        "microsoft.reportviewer.2015.runtime.nuspec"
+      ]
+    },
+    "Microsoft.ReportViewer.VS2015.WinForms/12.0.2.2402": {
+      "sha512": "L8pUPf5eAmks7hK6txAhAqo1jrcXPtZn/IYUNpmetX+Mwd4WovX9y/21o6Oozn6pxBtBYzKsdbsTsPFAkFI5/g==",
+      "type": "package",
+      "path": "microsoft.reportviewer.vs2015.winforms/12.0.2.2402",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/Microsoft.ReportViewer.WinForms.dll",
+        "lib/net40/Microsoft.ReportViewer.WinForms.xml",
+        "microsoft.reportviewer.vs2015.winforms.12.0.2.2402.nupkg.sha512",
+        "microsoft.reportviewer.vs2015.winforms.nuspec"
       ]
     },
     "Microsoft.SqlServer.Server/1.0.0": {
@@ -2724,6 +2773,8 @@
     ".NETCoreApp,Version=v3.1": [
       "DocumentFormat.OpenXml >= 2.20.0",
       "Microsoft.Data.SqlClient >= 5.1.1",
+      "Microsoft.ReportViewer.2015.Runtime >= 12.0.2.2402",
+      "Microsoft.ReportViewer.VS2015.WinForms >= 12.0.2.2402",
       "QRCoder >= 1.4.3",
       "System.Data.SqlClient >= 4.8.5",
       "ZXing.Net >= 0.16.9"
@@ -2781,6 +2832,14 @@
             "target": "Package",
             "version": "[5.1.1, )"
           },
+          "Microsoft.ReportViewer.2015.Runtime": {
+            "target": "Package",
+            "version": "[12.0.2.2402, )"
+          },
+          "Microsoft.ReportViewer.VS2015.WinForms": {
+            "target": "Package",
+            "version": "[12.0.2.2402, )"
+          },
           "QRCoder": {
             "target": "Package",
             "version": "[1.4.3, )"
@@ -2821,5 +2880,27 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.ReportViewer.2015.Runtime 12.0.2.2402' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.ReportViewer.2015.Runtime",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.ReportViewer.VS2015.WinForms 12.0.2.2402' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.ReportViewer.VS2015.WinForms",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }
