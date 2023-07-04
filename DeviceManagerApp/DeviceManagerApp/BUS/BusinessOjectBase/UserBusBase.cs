@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BUS.BusinessObjectBase
+namespace DeviceManagerApp.BUS.BusinessObject
 {
     public class UserBusBase
     {

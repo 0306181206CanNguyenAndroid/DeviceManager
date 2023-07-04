@@ -266,12 +266,14 @@ select * from D_Faculty
 
 
 go
+
 create proc GetFacultyAfterDelete
 as
 select * from D_Faculty
 where IsDeleted=0
 
 go
+
 create proc GetAllTeachers
 as 
 begin

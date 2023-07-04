@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using DTO.Model;
-using BUS.BusinessObject;
 using DeviceManagerApp.DTO.Model;
 using DeviceManagerApp.BUS.BusinessObject;
 using System.Drawing.Imaging;
